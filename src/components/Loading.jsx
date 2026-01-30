@@ -6,7 +6,7 @@ const Loading = () => {
     <div className="loading-container">
       <div className="loading-content">
         {/* Wave Animation */}
-        <div className="wave-container">
+        <div className="wave-pulse">
           <div className="wave-bar"></div>
           <div className="wave-bar"></div>
           <div className="wave-bar"></div>

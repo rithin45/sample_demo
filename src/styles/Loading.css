@@ -20,7 +20,7 @@
 }
 
 /* Wave Animation Container */
-.wave-container {
+.wave-pulse {
   display: flex;
   justify-content: center;
   align-items: flex-end;
