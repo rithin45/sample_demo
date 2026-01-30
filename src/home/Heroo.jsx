@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade } from "swiper/modules";
-// eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 
 import "swiper/css";
@@ -41,18 +40,25 @@ const Heroo = () => {
         loop
         autoplay={{ delay: 5000 }}
         onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
-        className="min-h-screen"
+        className="h-[100svh]"
       >
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
-            <section
-              className="relative min-h-screen bg-cover bg-center"
-              style={{ backgroundImage: `url(${slide.image})` }}
-            >
-              {/* Light overlay */}
+            <section className="relative h-[100svh] overflow-hidden">
+              {/* Background Image - Fixed for all devices */}
+              <div 
+                className="absolute inset-0 bg-no-repeat"
+                style={{ 
+                  backgroundImage: `url(${slide.image})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center right'
+                }}
+              />
+
+              {/* Overlay */}
               <div className="absolute inset-0 bg-white/20"></div>
 
-              <div className="relative max-w-7xl mx-auto px-6 lg:px-20 min-h-screen flex items-center">
+              <div className="relative max-w-7xl mx-auto px-6 lg:px-20 h-[100svh] flex items-center">
                 <div className="max-w-2xl text-slate-800">
                   
                   {/* TITLE */}
@@ -64,7 +70,7 @@ const Heroo = () => {
                         : { opacity: 0, y: 40 }
                     }
                     transition={{ duration: 0.8, ease: "easeOut" }}
-                    className="text-[42px] lg:text-[52px] font-bold leading-tight mb-6"
+                    className="text-[36px] sm:text-[42px] lg:text-[52px] font-bold leading-tight mb-6"
                   >
                     {slide.title}
                   </motion.h1>
@@ -78,7 +84,7 @@ const Heroo = () => {
                         : { opacity: 0, y: 40 }
                     }
                     transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}
-                    className="text-[18px] lg:text-[20px] leading-relaxed mb-10 text-slate-600"
+                    className="text-[16px] sm:text-[18px] lg:text-[20px] leading-relaxed mb-10 text-slate-600"
                   >
                     {slide.text}
                   </motion.p>
@@ -92,7 +98,7 @@ const Heroo = () => {
                         : { opacity: 0, y: 40 }
                     }
                     transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-                    className="flex gap-4"
+                    className="flex flex-wrap gap-4"
                   >
                     <a
                       href="/services"
@@ -108,6 +114,7 @@ const Heroo = () => {
                       Contact us →
                     </a>
                   </motion.div>
+
                 </div>
               </div>
             </section>

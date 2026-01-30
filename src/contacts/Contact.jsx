@@ -17,13 +17,17 @@ const Contact = () => {
   return (
     <div>
       {/* Page Header */}
-            <section className="relative h-[320px] md:h-[420px] flex items-end overflow-hidden">
+            <section className="relative h-[200px] sm:h-[280px] md:h-[420px] flex items-end overflow-hidden w-full">
               
               {/* Background Image */}
               <div
-                className="absolute inset-0 bg-cover bg-center"
+                className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                 style={{
                   backgroundImage: `url(${headImage})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  width: '100%',
+                  height: '100%'
                 }}
               />
       
