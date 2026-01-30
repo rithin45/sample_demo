@@ -32,7 +32,7 @@ const Heroo = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section className="py-0">
+    <section>
       <Swiper
         modules={[Autoplay, EffectFade]}
         effect="fade"
@@ -40,28 +40,33 @@ const Heroo = () => {
         loop
         autoplay={{ delay: 5000 }}
         onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
-        className="h-[100svh]"
+        className="min-h-[48vh] sm:h-[100svh]"
       >
         {slides.map((slide, index) => (
-          <SwiperSlide key={index}>
-            <section className="relative h-[100svh] overflow-hidden">
-              {/* Background Image - Fixed for all devices */}
-              <div 
-                className="absolute inset-0 bg-no-repeat"
-                style={{ 
-                  backgroundImage: `url(${slide.image})`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center right'
-                }}
+          <SwiperSlide
+            key={index}
+            className="min-h-[48vh] sm:h-[100svh]"
+          >
+            <section className="relative min-h-[48vh] sm:h-[100svh] overflow-hidden">
+
+              {/* Background Image */}
+              <div
+                className="
+                  absolute inset-0
+                  bg-no-repeat
+                  bg-contain sm:bg-cover
+                  bg-center
+                "
+                style={{ backgroundImage: `url(${slide.image})` }}
               />
 
               {/* Overlay */}
               <div className="absolute inset-0 bg-white/20"></div>
 
-              <div className="relative max-w-7xl mx-auto px-6 lg:px-20 h-[100svh] flex items-center">
-                <div className="max-w-2xl text-slate-800">
-                  
-                  {/* TITLE */}
+              {/* Content */}
+              <div className="relative max-w-7xl mx-auto px-6 lg:px-20 min-h-[48vh] sm:h-[100svh] flex items-center">
+                <div className="max-w-2xl text-slate-800 translate-y-[-10%]">
+
                   <motion.h1
                     initial={{ opacity: 0, y: 40 }}
                     animate={
@@ -69,13 +74,12 @@ const Heroo = () => {
                         ? { opacity: 1, y: 0 }
                         : { opacity: 0, y: 40 }
                     }
-                    transition={{ duration: 0.8, ease: "easeOut" }}
-                    className="text-[36px] sm:text-[42px] lg:text-[52px] font-bold leading-tight mb-6"
+                    transition={{ duration: 0.8 }}
+                    className="text-[26px] sm:text-[42px] lg:text-[52px] font-bold mb-4 leading-tight"
                   >
                     {slide.title}
                   </motion.h1>
 
-                  {/* TEXT */}
                   <motion.p
                     initial={{ opacity: 0, y: 40 }}
                     animate={
@@ -83,13 +87,12 @@ const Heroo = () => {
                         ? { opacity: 1, y: 0 }
                         : { opacity: 0, y: 40 }
                     }
-                    transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}
-                    className="text-[16px] sm:text-[18px] lg:text-[20px] leading-relaxed mb-10 text-slate-600"
+                    transition={{ duration: 0.8, delay: 0.15 }}
+                    className="text-[13px] sm:text-[18px] lg:text-[20px] mb-7 text-slate-600"
                   >
                     {slide.text}
                   </motion.p>
 
-                  {/* BUTTONS */}
                   <motion.div
                     initial={{ opacity: 0, y: 40 }}
                     animate={
@@ -97,19 +100,19 @@ const Heroo = () => {
                         ? { opacity: 1, y: 0 }
                         : { opacity: 0, y: 40 }
                     }
-                    transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-                    className="flex flex-wrap gap-4"
+                    transition={{ duration: 0.8, delay: 0.3 }}
+                    className="flex flex-wrap gap-2"
                   >
                     <a
                       href="/services"
-                      className="bg-slate-800 hover:bg-slate-900 transition text-white px-6 py-3 text-sm font-semibold inline-block"
+                      className="bg-slate-800 hover:bg-slate-900 transition text-white px-4 py-2 text-sm font-semibold inline-block"
                     >
                       Read more →
                     </a>
 
                     <a
                       href="/contact"
-                      className="bg-yellow-400 hover:bg-yellow-500 transition text-black px-6 py-3 text-sm font-semibold inline-block"
+                      className="bg-yellow-400 hover:bg-yellow-500 transition text-black px-4 py-2 text-sm font-semibold inline-block"
                     >
                       Contact us →
                     </a>
