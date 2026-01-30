@@ -56,12 +56,11 @@ const Navbar = () => {
       {/* MOBILE MENU */}
       {menuOpen && (
         <div className="md:hidden bg-white shadow px-4 py-4 space-y-3 font-bold text-gray-700">
-          <Link to="/" className="block cursor-pointer">Home</Link>
-          <Link to="/services" className="block cursor-pointer">Services</Link>
+          <Link to="/services" className="block cursor-pointer" onClick={() => setMenuOpen(false)}>Services</Link>
           <span className="block cursor-pointer">News</span>
           <span className="block cursor-pointer">Elements</span>
-          <Link to="/contact" className="block cursor-pointer">Contact</Link>
-          <Link to="/getting-started" className="block cursor-pointer">Getting Started</Link>
+          <Link to="/contact" className="block cursor-pointer" onClick={() => setMenuOpen(false)}>Contact</Link>
+          <Link to="/getting-started" className="block cursor-pointer" onClick={() => setMenuOpen(false)}>Getting Started</Link>
 
           <button className="w-full mt-4 px-4 py-2 rounded-full border-2 hover:bg-slate-700 hover:text-white transition">
             Purchase
